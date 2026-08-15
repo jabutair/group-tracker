@@ -6,12 +6,12 @@ A full-stack web application built with Go (Golang) that consumes a RESTful API 
 
 ## 🚀 Key Features
 
-* 🎤 **Artist Catalogue:** Dynamic presentation of artists and bands featuring images, creation dates, first album releases, and member rosters.
-* 🔎 **Filter & Search System:** Custom filtering logic allowing users to search and discover artists based on dynamic criteria.
-* 📍 **Geographic & Concert Mapping:** Unified data fetching that links artists directly to their concert dates and worldwide locations.
-* 🔄 **Client-Server Interactivity:** Clean HTTP request and response handling connecting the frontend interface to backend handlers.
-* 🔒 **Robust Error Handling:** Built-in HTTP status handling (400, 404, 500) ensuring smooth operation and crash prevention under all conditions.
-* ⚡ **Zero External Dependencies:** Built purely using the Go Standard Library without any third-party packages.
+*  **Artist Catalogue:** Dynamic presentation of artists and bands featuring images, creation dates, first album releases, and member rosters.
+*  **Filter & Search System:** Custom filtering logic allowing users to search and discover artists based on dynamic criteria.
+*  **Geographic & Concert Mapping:** Unified data fetching that links artists directly to their concert dates and worldwide locations.
+*  **Client-Server Interactivity:** Clean HTTP request and response handling connecting the frontend interface to backend handlers.
+*  **Robust Error Handling:** Built-in HTTP status handling (400, 404, 500) ensuring smooth operation and crash prevention under all conditions.
+*  **Zero External Dependencies:** Built purely using the Go Standard Library without any third-party packages.
 
 ---
 
@@ -61,3 +61,12 @@ group-tracker/
    ```bash
    git clone [https://github.com/jabutair/group-tracker.git](https://github.com/jabutair/group-tracker.git)
    cd group-tracker
+   ```
+ 2. **Run the application:**
+   ```bash
+   go run main.go
+   ```
+ 3. **Open in browser:**
+   ```bash
+   Navigate to http://localhost:8080.
+   ```
