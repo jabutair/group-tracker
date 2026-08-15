@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Artist.Name }} - Exclusive Details</title>
+    <link rel="stylesheet" href="static/artist.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>{{ .Artist.Name }}</h1>
+    </div>
+
+    <div class="container">
+        <div class="info-box">
+            <h2>The Lineup (Members)</h2>
+            <p>
+                {{ range $i, $m := .Artist.Members }}
+                    {{ if $i }}, {{ end }}
+                    {{ $m }}
+                {{ end }}
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h2>History</h2>
+            <p>
+                Formed in <strong>{{ .Artist.Creation }}</strong>. 
+                Dropped first album in <strong>{{ .Artist.FirstAlbum }}</strong>.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h2>Tour Destinations</h2>
+            <p>
+                {{ range $i, $l := .Locations.Locations }}
+                    {{ if $i }}, {{ end }}
+                    {{ $l }}
+                {{ end }}
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h2>Full Schedule</h2>
+            <ul style="list-style: none; padding: 0;">
+                {{ range $date, $locations := .DatesAndLocations.DatesLocations }}
+                    <li>
+                        <strong style="color: var(--gold);">{{ $date }}:</strong>
+                        {{ range $locations }}{{ . }} {{ end }}
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+
+    <a href="/" class="back-link">RETURN TO GALAXY</a>
+
+</body>
+</html>

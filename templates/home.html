@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Magnificent Music Galaxy</title>
+    <link rel="stylesheet" href="static/home.css">
+</head>
+<body>
+
+    <div class="header" id="mainHeader">
+        <a href="/"><h1>THE MAGNIFICENT GALAXY OF MUSIC BANDS</h1></a>
+    </div>
+
+    <div class="filter-container" id="filterSection">
+        <form action="/" method="GET" id="searchForm">
+            <input type="text" name="search" id="searchInput" class="search-box" placeholder="Search for artists or members..." autocomplete="off">
+
+            <div class="filters-grid">
+
+                <div class="filter-group">
+                    <label>Formation Era</label>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="number" name="creationDateStart" placeholder="From">
+                    </div>
+                    <br>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="number" name="creationDateEnd" placeholder="To">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>First Album</label>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="number" name="firstAlbumStart" placeholder="From">
+                    </div>
+                    <br>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="number" name="firstAlbumEnd" placeholder="To">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Band Members</label>
+                    <div class="members-options">
+                        {{range $i := .MembersRange}}
+                            <label class="member-btn">
+                                <input type="checkbox" name="members" value="{{$i}}">
+                                <span>{{$i}}</span>
+                            </label>
+                        {{end}}
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Global Location</label>
+                    <select name="location">
+                        <option value="">Worldwide (All)</option>
+                        <option value="london-uk">London, UK</option>
+                        <option value="paris-france">Paris, France</option>
+                        <option value="new_york-usa">New York, USA</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">LAUNCH DISCOVERY</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="artist-container">
+        {{if .Artists}}
+            {{range .Artists}}
+                <a href="/moreinfo?artistNumber={{ .ID }}" class="artist-box">
+                    <img src="{{ .Image }}" alt="{{ .Name }}">
+                    <h2 style="color: var(--primary-gold); font-size: 18px;">{{ .Name }}</h2>
+                    <p style="color: #666; font-size: 12px;">ID: {{ .ID }}</p>
+                </a>
+            {{end}}
+        {{else}}
+            <div class="no-results">
+                <div style="font-size: 80px; margin-bottom: 20px;">👨‍🚀</div>
+                <p>We couldn't find any <strong>artists</strong> or <strong>members</strong> in this sector.</p>
+                <p style="font-size: 14px; color: #888;">Try adjusting your filters or tap the galaxy title to reset.</p>
+            </div>
+        {{end}}
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const filterSection = document.getElementById('filterSection');
+
+        searchInput.addEventListener('focus', () => {
+            filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.toString().length > 0) {
+                filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+
+    <footer style="margin-top: 50px; padding: 20px; opacity: 0.3; font-size: 12px; letter-spacing: 2px; text-align: center; width: 100%;">
+        <p>CREATED BY JENAN ABUTAIR</p>
+    </footer>
+
+</body>
+</html>
