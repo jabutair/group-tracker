@@ -19,10 +19,10 @@ A full-stack web application built with Go (Golang) that consumes a RESTful API 
 
 Building this project was a hands-on learning experience in full-stack backend development. Key concepts mastered include:
 
-* 🐹 **Mastering Go Standard Library:** Deep dive into net/http, html/template, and encoding/json without relying on external frameworks.
-* 🌐 **RESTful API Consumption & JSON Parsing:** Structuring Go models (structs) to unmarshal complex nested API responses efficiently.
-* 🏗️ **Clean Architecture:** Designing a maintainable project layout with dedicated packages for handlers, models, and services.
-* 🛡️ **Error Management:** Implementing crash-proof web server practices and graceful error responses for optimal user experience.
+*  **Mastering Go Standard Library:** Deep dive into net/http, html/template, and encoding/json without relying on external frameworks.
+*  **RESTful API Consumption & JSON Parsing:** Structuring Go models (structs) to unmarshal complex nested API responses efficiently.
+*  **Clean Architecture:** Designing a maintainable project layout with dedicated packages for handlers, models, and services.
+*  **Error Management:** Implementing crash-proof web server practices and graceful error responses for optimal user experience.
 
 ---
 
@@ -46,7 +46,7 @@ group-tracker/
 ├── go.mod               # Go module configuration
 ├── main.go              # Application entry point
 └── README.md            # Documentation
-
+```
 ---
 
 ## 📦 Getting Started
